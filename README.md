@@ -1,6 +1,13 @@
 # 🛰️ Digital Contact Tracing via Machine Learning
 **Repository:** [https://github.com/muj951/Contact-Tracing](https://github.com/muj951/Contact-Tracing)
 
+## Group Members
+- Mujahid Afzal
+- Abdullah Zia
+- Talha Siddique
+
+## Every Member will do one checkpoint and others will support in commit, pull request and collaburate during the entire project.
+
 ## 1. Project Overview
 Contact tracing is a process used by public health ministries to stop the spread of infectious diseases like COVID-19. This project implements a digital tracing algorithm using GPS data and the **DBSCAN** (Density-Based Spatial Clustering of Applications with Noise) algorithm.
 
