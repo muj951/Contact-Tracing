@@ -33,3 +33,18 @@ Ensure you have [UV](https://github.com/astral-sh/uv) installed.
    ```bash
    git clone [https://github.com/muj951/Contact-Tracing.git](https://github.com/muj951/Contact-Tracing.git)
    cd Contact-Tracing
+   ```
+
+## Checkpoint 2: Code Quality & Experiment Tracking (Feb 15, 2026)
+
+### Performance & Testing
+- **Unit Test Coverage**: Achieved **76% coverage** (surpassing the 60% requirement).
+- **Execution**: Run `uv run pytest --cov=src` to verify.
+
+### Experiment Tracking (MLflow)
+- **Parameters Logged**: Epsilon, min_samples, and user_of_interest.
+- **Artifacts**: DBSCAN model versions are saved in the `mlruns/` directory.
+- **UI Access**: Run `uv run mlflow ui` to compare experiment runs.
+
+### Code Quality
+- **Pre-commit Hooks**: Configured to run `ruff`, `trailing-whitespace`, and `end-of-file-fixer` on every commit.
