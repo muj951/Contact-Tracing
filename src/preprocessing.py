@@ -1,7 +1,7 @@
 import pandas as pd
 from pathlib import Path
 
-# Universal path to the data file 
+# Universal path to the data file
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DATA_PATH = PROJECT_ROOT / "data" / "contact_tracking.json"
 
@@ -11,7 +11,7 @@ def load_data(filepath=DATA_PATH):
         if not filepath.exists():
             print(f" Error: File not found at {filepath}")
             return None
-            
+
         df = pd.read_json(filepath)
         print(f" Data loaded successfully! Shape: {df.shape}")
         return df
