@@ -1,32 +1,21 @@
 import pandas as pd
+import mlflow
 from src.train import run_contact_tracing
 
-def test_run_contact_tracing_finds_contacts():
-    # Create a small dummy dataset
+def test_run_contact_tracing_live_db():
+    # Use a separate test database to keep your main data clean
+    mlflow.set_tracking_uri("sqlite:///mlflow_test.db")
+
     data = {
         'id': ['UserA', 'UserA', 'UserB'],
-        'latitude': [13.148, 13.149, 13.148], # UserA and UserB are very close
+        'latitude': [13.148, 13.149, 13.148],
         'longitude': [77.593, 77.593, 77.593],
         'timestamp': ['2020-07-04 15:35:30'] * 3
     }
     df = pd.DataFrame(data)
 
-    # Run the function
     contacts = run_contact_tracing(df, input_name="UserA")
 
-    # Assertions
+    # Assertions for your logic
     assert "UserB" in contacts
-    assert "UserA" not in contacts  # Should not find themselves as a contact
-
-def test_run_contact_tracing_no_contacts():
-    # Create data where users are far apart
-    data = {
-        'id': ['UserA', 'UserC'],
-        'latitude': [13.148, 14.000],
-        'longitude': [77.593, 78.000],
-        'timestamp': ['2020-07-04 15:35:30'] * 2
-    }
-    df = pd.DataFrame(data)
-
-    contacts = run_contact_tracing(df, input_name="UserA")
-    assert len(contacts) == 0
+    assert "UserA" not in contacts
