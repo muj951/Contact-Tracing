@@ -1,0 +1,15 @@
+artifact_path: file:F:/Master/Machine Learning/Projects/mlops-contact-tracing/mlruns/1/models/m-0de9898825054cff94b8f2806c93e771/artifacts
+flavors:
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.8.0
+    skops_trusted_types: null
+mlflow_version: 3.9.0
+model_id: m-0de9898825054cff94b8f2806c93e771
+model_size_bytes: 705
+model_uuid: m-0de9898825054cff94b8f2806c93e771
+prompts: null
+run_id: 3bd5a649b9664ca5b923ffc03594bb8e
+utc_time_created: '2026-02-22 00:39:32.973805'
