@@ -1,0 +1,47 @@
+name: CI Pipeline
+
+# 1. This tells GitHub when to run the pipeline
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  # ---------------------------------------------------------
+  # JOB 1: Run Unit Tests and Check Coverage
+  # ---------------------------------------------------------
+  test:
+    name: Run Pytest
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          version: "latest"
+
+      - name: Set up Python 3.13
+        run: uv python install 3.13
+
+      - name: Install Dependencies
+        run: uv sync
+
+      - name: Run Tests with Coverage
+        run: uv run pytest --cov=src --cov-report=term-missing
+
+  # ---------------------------------------------------------
+  # JOB 2: Build the Docker Image
+  # ---------------------------------------------------------
+  docker-build:
+    name: Build Docker Image
+    needs: test # This ensures Docker only builds if the tests pass!
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Build the Docker Image
+        run: docker build -t contact-tracing-api:latest .
