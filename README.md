@@ -62,3 +62,6 @@ This project includes a fully containerized FastAPI application for model infere
 2. Run the container: ```bash docker run -p 8000:8000 contact-tracing-api ```
 
 3. Test the API: Open your browser and navigate to http://localhost:8000/docs to use the interactive Swagger UI. Test the /trace endpoint with a payload like {"user_name": "Judy"}.
+
+
+**[Watch the Application Demo Here](https://www.youtube.com/watch?v=9RjPVzOSzSw)**
